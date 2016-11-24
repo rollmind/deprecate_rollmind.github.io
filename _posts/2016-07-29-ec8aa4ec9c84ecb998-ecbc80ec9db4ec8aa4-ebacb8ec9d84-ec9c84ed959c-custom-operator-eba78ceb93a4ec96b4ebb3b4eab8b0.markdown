@@ -11,7 +11,7 @@ categories:
 - swift
 ---
 
-오늘도 뜬금없는 강의(강의라는 단어가 저한테 좀 과한 느낌이드네요)입니다. 이번에는 custom operator에 특히 switch case문에서 사용하는 custom expression pattern에 대해 써보겠습니다.
+오늘도 뜬금없는 글입니다. 이번에는 custom operator에 특히 switch case문에서 사용하는 custom expression pattern에 대해 써보겠습니다.
 
 개발을 하다보면 쉽게 마주치는 if 문이 있습니다.
 
@@ -19,16 +19,13 @@ categories:
 
 
 
-    
-    <code class="language-swift">let number = 100
-    
-    if 100 > number {
-        print("smaller than 100")
-    } else if 100 <= number {
-        print("equal or bigger than 100")
-    }</code>
-
-
+```swift
+if 100 > number {
+	print("smaller than 100")
+} else if 100 <= number {
+	print("equal or bigger than 100")
+}    
+```
 
 
 
@@ -39,18 +36,10 @@ switch case의 풍부한 문법에 눈뜨기 시작하신 스위프트 유저라
 
 시작과 끝의 범위가 명확하다면
 
-
-
-
-
-    
-    <code class="language-swift">case 0...100:
-        print("blah blah")</code>
-
-
-
-
-
+```swift
+case 0...100:
+	print("blah blah")
+```
 
 라는 형식도 가능합니다만, 두 번째 else if 문을 switch case 문으로 하려면
 
@@ -59,8 +48,8 @@ switch case의 풍부한 문법에 눈뜨기 시작하신 스위프트 유저라
 
 
     
-    <code class="language-swift">case 100..<Int.max:
-        print("blah blah")</code>
+	case 100..<Int.max:
+        print("blah blah")
 
 
 
@@ -71,12 +60,8 @@ switch case의 풍부한 문법에 눈뜨기 시작하신 스위프트 유저라
 
 코드는 다음과 같습니다.
 
-
-
-
-
     
-    <code class="language-swift">//괜히 만들어봤습니다. 좀더 프로토콜 중심으로 구성하고 싶었는데, 제 제너릭에 대한 습득이 아직 부족하여서.. associatedtype으로는 문제가 많아 struct를 중심으로 작성합니다.
+    //괜히 만들어봤습니다. 좀더 프로토콜 중심으로 구성하고 싶었는데, 제 제너릭에 대한 습득이 아직 부족하여서.. associatedtype으로는 문제가 많아 struct를 중심으로 작성합니다.
     protocol PatternComparable {}
     
     // 비교 operator와 비교값을 담을 수 있도록 struct를 작성합니다.
@@ -130,7 +115,7 @@ switch case의 풍부한 문법에 눈뜨기 시작하신 스위프트 유저라
         func patterned<E where E: Comparable>(op: (lhs: E, rhs: E) -> Bool) -> Pattern<E> {
             return Pattern<E>(op: op, to: self as! E)
         }
-    }</code>
+    }
 
 
 
@@ -144,9 +129,9 @@ switch case의 풍부한 문법에 눈뜨기 시작하신 스위프트 유저라
 
 
     
-    <code class="language-swift">let value = "test"
+	let value = "test"
     
-    switch value {
+	switch value {
     case patternize(<=, "test1"):
         print("smaller than test1")
     case patternize(>, "tes"):
@@ -164,7 +149,7 @@ switch case의 풍부한 문법에 눈뜨기 시작하신 스위프트 유저라
         print("bigger than 100.0")
     default:
         print("default")
-    }</code>
+    }
 
 
 
@@ -175,12 +160,7 @@ switch case의 풍부한 문법에 눈뜨기 시작하신 스위프트 유저라
 
 
 
-<blockquote>smaller than test1
-bigger than 100.0</blockquote>
-
-
-
-
+>smaller than test1 bigger than 100.0
 
 #### Comparable을 제너릭의 상속값으로 사용했기 때문에, 문자열같이 Comparable을 extension으로 가지는 모든 타입에서 사용이 가능하다는 장점이 있습니다. 그래도 if 문보다 손이 많이 가는건 어쩔 수가 없네요. 더 좋은 방법을 함께 토론할 수 있다면 좋겠습니다.
 
