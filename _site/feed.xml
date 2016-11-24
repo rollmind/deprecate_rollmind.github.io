@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/forty-jekyll-theme/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/forty-jekyll-theme/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/forty-jekyll-theme/" rel="alternate" type="text/html" /><updated>2016-11-24T14:51:40+09:00</updated><id>http://localhost:4000/forty-jekyll-theme//</id><subtitle>A responsive site template designed by HTML5 Up&lt;br /&gt; and released under the Creative Commons.</subtitle><entry><title type="html">Swift pointers cheat sheet</title><link href="http://localhost:4000/forty-jekyll-theme/2016/11/24/swift-pointer.html" rel="alternate" type="text/html" title="Swift pointers cheat sheet" /><published>2016-11-24T00:00:00+09:00</published><updated>2016-11-24T00:00:00+09:00</updated><id>http://localhost:4000/forty-jekyll-theme/2016/11/24/swift-pointer</id><content type="html" xml:base="http://localhost:4000/forty-jekyll-theme/2016/11/24/swift-pointer.html">&lt;h1 id=&quot;c와-swift의-포인터작업중&quot;&gt;c와 swift의 포인터(작업중…)&lt;/h1&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;c&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;swift&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;const Type *&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;UnsafePointer&amp;lt;Type&amp;gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;const void *&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;UnsafeRawPointer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Type *&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;UnsafeMutablePointer&amp;lt;Type&amp;gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;void *&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;UnsafeMutableRawPointer&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;클래스&quot;&gt;클래스&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;c&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;swift&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Type * cosnt *&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;UnsafePointer&amp;lt;Type&amp;gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Type * __strong *&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;UnsafeMutablePointer&amp;lt;Type&amp;gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Type **&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;AutoreleasingUnsafeMutablePointer&amp;lt;Type&amp;gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;함수&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;c&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;swift&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;int (*) (void)&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;@convention () -&amp;gt; Int32&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Null&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;c&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;swift&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;const Type * _Nonnull&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;UsafePointer&amp;lt;Type&amp;gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;const Type * _Nullable&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;UnsafePointer&amp;lt;Type&amp;gt;?&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;const Type * _Null_unspecified&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;UnsafePointer&amp;lt;Type&amp;gt;!&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;포인터의 계산&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;c&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;swift&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;int p[] = {3, 2, 1, 0};&lt;br /&gt;int a = *(p+1); =&amp;gt; 2&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;let values = [3, 2, 1, 0]&lt;br /&gt;var arr: UnsafePointer&lt;Int&gt; = UnsafePointer&lt;Int&gt;(values)&lt;br /&gt;let a: Int = (arr + 1).pointee =&amp;gt; 2&lt;/Int&gt;&lt;/Int&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;타입 사이즈 계산&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;c의 &lt;em&gt;sizeof, strideof&lt;/em&gt; 함수의 역할&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;struct timeval { ... }
+MemoryLayout&amp;lt;timeval&amp;gt;.size =&amp;gt; 16, timeval의 데이터 크기
+MemoryLayout&amp;lt;timeval&amp;gt;.stride =&amp;gt; 16, timeval이 메모리에서 차지하는 실제 영역의 크기
+MemoryLayout&amp;lt;timeval&amp;gt;.alignment =&amp;gt; 8, timeval의 메모리 주소 정렬, timeval은 8바이트의 배수로 메모리를 차지함
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><summary type="html">c와 swift의 포인터(작업중…)</summary></entry><entry><title type="html">Introducing chalk</title><link href="http://localhost:4000/forty-jekyll-theme/2016/10/17/introducing-chalk.html" rel="alternate" type="text/html" title="Introducing chalk" /><published>2016-10-17T00:00:00+09:00</published><updated>2016-10-17T00:00:00+09:00</updated><id>http://localhost:4000/forty-jekyll-theme/2016/10/17/introducing-chalk</id><content type="html" xml:base="http://localhost:4000/forty-jekyll-theme/2016/10/17/introducing-chalk.html">&lt;p&gt;&lt;a href=&quot;https://github.com/nielsenramon/chalk&quot;&gt;Download Chalk here!&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;features&quot;&gt;Features:&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Dark and Light theme.&lt;/li&gt;
+  &lt;li&gt;Filter on tags.&lt;/li&gt;
+  &lt;li&gt;Customizable pagination.&lt;/li&gt;
+  &lt;li&gt;Beautified link sharing in Facebook and other social media.&lt;/li&gt;
+  &lt;li&gt;Automatic time to read post indicator.&lt;/li&gt;
+  &lt;li&gt;Automatic RSS feed.&lt;/li&gt;
+  &lt;li&gt;About page.&lt;/li&gt;
+  &lt;li&gt;404 page.&lt;/li&gt;
+  &lt;li&gt;SEO optimized.&lt;/li&gt;
+  &lt;li&gt;PageSpeed optimized.&lt;/li&gt;
+  &lt;li&gt;Cross browser support (supports all modern browsers).&lt;/li&gt;
+  &lt;li&gt;Media embed for videos.&lt;/li&gt;
+  &lt;li&gt;Enlarge images on click (like Medium).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;integrations&quot;&gt;Integrations&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://analytics.google.com/analytics/web/&quot;&gt;Google Analytics&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://fonts.google.com/&quot;&gt;Google Fonts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://disqus.com/&quot;&gt;Disqus&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://ionicons.com/&quot;&gt;Ionicons&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Social media links&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;used-tools&quot;&gt;Used tools&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/postcss/autoprefixer&quot;&gt;Autoprefixer&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://bower.io/&quot;&gt;Bower&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://circleci.com/&quot;&gt;Circle CI&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/gjtorikian/html-proofer&quot;&gt;Html-proofer&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/jekyll/jekyll-assets&quot;&gt;Jekyll assets&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/jekyll/jekyll-sitemap&quot;&gt;Jekyll Sitemap&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://html5boilerplate.com/&quot;&gt;HTML5 Boilerplate&lt;/a&gt; (Influenced by)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://kickster.nielsenramon.com/&quot;&gt;Kickster&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://imulus.github.io/retinajs/&quot;&gt;Retina.js&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stacss.nielsenramon.com/&quot;&gt;STACSS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
+
+&lt;p&gt;If you haven&amp;#8217;t installed Ruby then go ahead and install it with: &lt;code class=&quot;highlighter-rouge&quot;&gt;brew install Ruby&lt;/code&gt;.
+Next setup your environment:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;bin/setup&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;development&quot;&gt;Development&lt;/h2&gt;
+
+&lt;p&gt;Run Jekyll:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;deploy-to-github-pages&quot;&gt;Deploy to GitHub Pages&lt;/h2&gt;
+
+&lt;p&gt;Run this in the root project folder in your console:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;bin/deploy&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;You can find more info on how to use the gh-pages branch and a custom domain &lt;a href=&quot;https://help.github.com/articles/quick-start-setting-up-a-custom-domain/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/nielsenramon/kickster#automated-deployment-with-circle-ci&quot;&gt;View this&lt;/a&gt; for more info about automated deployment with Circle CI.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;If you have any questions about using or configuring Chalk please create an issue &lt;a href=&quot;&quot; title=&quot;here&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;!&lt;/em&gt;&lt;/p&gt;</content><category term="web" /><category term="jekyll" /><summary type="html"></summary></entry><entry><title type="html">How to configure Chalk</title><link href="http://localhost:4000/forty-jekyll-theme/2016/10/16/configuring-chalk.html" rel="alternate" type="text/html" title="How to configure Chalk" /><published>2016-10-16T00:00:00+09:00</published><updated>2016-10-16T00:00:00+09:00</updated><id>http://localhost:4000/forty-jekyll-theme/2016/10/16/configuring-chalk</id><content type="html" xml:base="http://localhost:4000/forty-jekyll-theme/2016/10/16/configuring-chalk.html">&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file is the most important one. It contains the basic setup of your project.
+Some parts are preconfigured and shouldn’t be touched as the comments state.
+Of course if you are familiar with Jekyll you can change whatever you want.&lt;/p&gt;
+
+&lt;p&gt;Note: You do not &lt;em&gt;have&lt;/em&gt; to change anything. Chalk works out of the box. I do recommend changing the &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; to suit your needs.&lt;/p&gt;
+
+&lt;h3 id=&quot;mandatory-settings&quot;&gt;Mandatory settings&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Mandatory settings&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;baseurl&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Chalk&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;paginate&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;25&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;paginate_path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/posts/page/:num/&quot;&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;http://chalk.nielsenramon.com&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# add site url http://example.com/&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;blog_theme&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;light&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Or use dark&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;baseurl&lt;/code&gt;: Set baseurl to match the production URL without the host.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;name&lt;/code&gt;: Used as the page title and throughout your project as the default name.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;paginate&lt;/code&gt;: Define how much posts should be shown on the homepage for each page.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;paginate_path&lt;/code&gt;: Change the path name to something else for paginated pages.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;url&lt;/code&gt;: Your production url (http://example.com).&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;blog_theme&lt;/code&gt;: 2 options here, &lt;code class=&quot;highlighter-rouge&quot;&gt;light&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;dark&lt;/code&gt;. Choose which design you prefer.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;optional-settings&quot;&gt;Optional settings&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Optional settings&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;discus_identifier&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Add your Disqus identifier&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;ga_analytics&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Add your GA Tracking Id&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;rss_enabled&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Change to false if not&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;social&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;dribbble&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Add your Dribbble link&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;facebook&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Add your Facebook link&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Add your GitHub link&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;linkedin&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Add your LinkedIn link&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;twitter&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Add your Twitter handle&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;discus_identifier&lt;/code&gt;: If you like to use Disqus for comments on each blog post, you can add the Disqus identifier here and it will popup automatically.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ga_analytics&lt;/code&gt;: Add Google Analytics Tracking ID here.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rss_enabled&lt;/code&gt;: When set to &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;, the rss icon in the top navigation will show up and people will be able to subscribe to your rss feed.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;social&lt;/code&gt;: Add you social links in here. When filled in they will show up in the navigation.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;other-settings&quot;&gt;Other settings&lt;/h3&gt;
+
+&lt;p&gt;Other than the &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; you can change a lot more in the project.&lt;/p&gt;
+
+&lt;h4 id=&quot;tags&quot;&gt;Tags&lt;/h4&gt;
+
+&lt;p&gt;To add tags you must add a file with the tag name in &lt;code class=&quot;highlighter-rouge&quot;&gt;_my_tags&lt;/code&gt;.
+In the file you add 2 variables: &lt;code class=&quot;highlighter-rouge&quot;&gt;slug&lt;/code&gt; used to reference the tag and &lt;code class=&quot;highlighter-rouge&quot;&gt;name&lt;/code&gt; which is displayed in the article header.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# _my_tags/design.md&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;slug&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;design&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Design&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;scss&quot;&gt;SCSS&lt;/h4&gt;
+
+&lt;p&gt;You can change colors, fonts, sizes in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_assets/stylesheets/_variables.scss&lt;/code&gt; file.
+For each specific theme (light or dark) you can change the variables in &lt;code class=&quot;highlighter-rouge&quot;&gt;_assets/stylesheets/dark.scss&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;_assets/stylesheets/light.scss&lt;/code&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-scss&quot; data-lang=&quot;scss&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// =============================================================================
+// Variables
+// =============================================================================
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Typography
+// =============================================================================
+&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$sans-serif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Lato&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Helvetica&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Arial&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$serif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Cormorant Garamond&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Courier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;serif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$base-font-family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$sans-serif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$base-font-weight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;400&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$base-font-weight-bold&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;700&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Colors
+// =============================================================================
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Brand colors
+&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$brand-success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;#1fbf92&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$brand-danger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;#e74b3c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$brand-primary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;#3449ed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$brand-warning&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;#f1c90b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Sizes
+// =============================================================================
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Grid
+&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$max-width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;650px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$gutter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$one-column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$negative-gutter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$gutter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Font sizes
+&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$base-font-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;16px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$base-line-height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Box sizes
+&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$base-border-radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Effects
+// =============================================================================
+&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$base-transition-speed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;.2s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;fonts&quot;&gt;Fonts&lt;/h4&gt;
+
+&lt;p&gt;Chalk uses Google Fonts by default. You can change the font in &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/javascripts.html&lt;/code&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;WebFont&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;google&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;families&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Cormorant Garamond:700'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Lato:300,400,700'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;footer&quot;&gt;Footer&lt;/h4&gt;
+
+&lt;p&gt;Changing the text in the footer is easy. It can be found in &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/footer.html&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;If you have any questions about using or configuring Chalk please create an issue &lt;a href=&quot;&quot; title=&quot;here&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;!&lt;/em&gt;&lt;/p&gt;</content><category term="web" /><category term="jekyll" /><summary type="html">The _config.yml file is the most important one. It contains the basic setup of your project.
+Some parts are preconfigured and shouldn’t be touched as the comments state.
+Of course if you are familiar with Jekyll you can change whatever you want.</summary></entry><entry><title type="html">Swift pointers 요약</title><link href="http://localhost:4000/forty-jekyll-theme/2016/10/15/xcode-essentials.html" rel="alternate" type="text/html" title="Swift pointers 요약" /><published>2016-10-15T00:00:00+09:00</published><updated>2016-10-15T00:00:00+09:00</updated><id>http://localhost:4000/forty-jekyll-theme/2016/10/15/xcode-essentials</id><content type="html" xml:base="http://localhost:4000/forty-jekyll-theme/2016/10/15/xcode-essentials.html">&lt;h1 id=&quot;c와-swift의-포인터-변환&quot;&gt;c와 swift의 포인터 변환&lt;/h1&gt;</content><summary type="html">c와 swift의 포인터 변환</summary></entry><entry><title type="html">Aliquam</title><link href="http://localhost:4000/forty-jekyll-theme/2016/08/25/aliquam.html" rel="alternate" type="text/html" title="Aliquam" /><published>2016-08-25T00:00:00+09:00</published><updated>2016-08-25T00:00:00+09:00</updated><id>http://localhost:4000/forty-jekyll-theme/2016/08/25/aliquam</id><content type="html" xml:base="http://localhost:4000/forty-jekyll-theme/2016/08/25/aliquam.html">&lt;p&gt;Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. 
+Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. 
+Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. 
+Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. 
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. 
+Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. 
+Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. 
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. 
+Pellentesque aliquam maximus risus, vel sed vehicula.&lt;/p&gt;
+
+&lt;p&gt;Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. 
+Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. 
+Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.&lt;/p&gt;</content><summary type="html">Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. 
+Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. 
+Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. 
+Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/forty-jekyll-theme/assets/images/pic01.jpg" /></entry><entry><title type="html">Tempus</title><link href="http://localhost:4000/forty-jekyll-theme/2016/08/24/tempus.html" rel="alternate" type="text/html" title="Tempus" /><published>2016-08-24T00:00:00+09:00</published><updated>2016-08-24T00:00:00+09:00</updated><id>http://localhost:4000/forty-jekyll-theme/2016/08/24/tempus</id><content type="html" xml:base="http://localhost:4000/forty-jekyll-theme/2016/08/24/tempus.html">&lt;p&gt;Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. 
+Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. 
+Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. 
+Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. 
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. 
+Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. 
+Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. 
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. 
+Pellentesque aliquam maximus risus, vel sed vehicula.&lt;/p&gt;
+
+&lt;p&gt;Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. 
+Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. 
+Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.&lt;/p&gt;</content><summary type="html">Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. 
+Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. 
+Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. 
+Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/forty-jekyll-theme/assets/images/pic02.jpg" /></entry><entry><title type="html">Magna</title><link href="http://localhost:4000/forty-jekyll-theme/2016/08/23/magna.html" rel="alternate" type="text/html" title="Magna" /><published>2016-08-23T00:00:00+09:00</published><updated>2016-08-23T00:00:00+09:00</updated><id>http://localhost:4000/forty-jekyll-theme/2016/08/23/magna</id><content type="html" xml:base="http://localhost:4000/forty-jekyll-theme/2016/08/23/magna.html">&lt;p&gt;Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. 
+Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. 
+Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. 
+Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. 
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. 
+Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. 
+Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. 
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. 
+Pellentesque aliquam maximus risus, vel sed vehicula.&lt;/p&gt;
+
+&lt;p&gt;Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. 
+Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. 
+Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.&lt;/p&gt;</content><summary type="html">Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. 
+Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. 
+Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. 
+Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/forty-jekyll-theme/assets/images/pic03.jpg" /></entry><entry><title type="html">Ipsum</title><link href="http://localhost:4000/forty-jekyll-theme/2016/08/22/ipsum.html" rel="alternate" type="text/html" title="Ipsum" /><published>2016-08-22T00:00:00+09:00</published><updated>2016-08-22T00:00:00+09:00</updated><id>http://localhost:4000/forty-jekyll-theme/2016/08/22/ipsum</id><content type="html" xml:base="http://localhost:4000/forty-jekyll-theme/2016/08/22/ipsum.html">&lt;p&gt;Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. 
+Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. 
+Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. 
+Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. 
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. 
+Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. 
+Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. 
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. 
+Pellentesque aliquam maximus risus, vel sed vehicula.&lt;/p&gt;
+
+&lt;p&gt;Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. 
+Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. 
+Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.&lt;/p&gt;</content><summary type="html">Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. 
+Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. 
+Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. 
+Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/forty-jekyll-theme/assets/images/pic04.jpg" /></entry><entry><title type="html">Consequat</title><link href="http://localhost:4000/forty-jekyll-theme/2016/08/21/consequat.html" rel="alternate" type="text/html" title="Consequat" /><published>2016-08-21T00:00:00+09:00</published><updated>2016-08-21T00:00:00+09:00</updated><id>http://localhost:4000/forty-jekyll-theme/2016/08/21/consequat</id><content type="html" xml:base="http://localhost:4000/forty-jekyll-theme/2016/08/21/consequat.html">&lt;p&gt;Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. 
+Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. 
+Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. 
+Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. 
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. 
+Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. 
+Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. 
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. 
+Pellentesque aliquam maximus risus, vel sed vehicula.&lt;/p&gt;
+
+&lt;p&gt;Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. 
+Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. 
+Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.&lt;/p&gt;</content><summary type="html">Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. 
+Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. 
+Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. 
+Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/forty-jekyll-theme/assets/images/pic05.jpg" /></entry><entry><title type="html">Etiam</title><link href="http://localhost:4000/forty-jekyll-theme/2016/08/20/etiam.html" rel="alternate" type="text/html" title="Etiam" /><published>2016-08-20T00:00:00+09:00</published><updated>2016-08-20T00:00:00+09:00</updated><id>http://localhost:4000/forty-jekyll-theme/2016/08/20/etiam</id><content type="html" xml:base="http://localhost:4000/forty-jekyll-theme/2016/08/20/etiam.html">&lt;p&gt;Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. 
+Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. 
+Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. 
+Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. 
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. 
+Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. 
+Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. 
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. 
+Pellentesque aliquam maximus risus, vel sed vehicula.&lt;/p&gt;
+
+&lt;p&gt;Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. 
+Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. 
+Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.&lt;/p&gt;</content><summary type="html">Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. 
+Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. 
+Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. 
+Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/forty-jekyll-theme/assets/images/pic06.jpg" /></entry></feed>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title></title>
+	<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>Swift pointers cheat sheet</title>
+<meta property="og:title" content="Swift pointers cheat sheet" />
+<meta name="description" content="c와 swift의 포인터(작업중…)" />
+<meta property="og:description" content="c와 swift의 포인터(작업중…)" />
+<link rel="canonical" href="http://localhost:4000/forty-jekyll-theme/2016/11/24/swift-pointer.html" />
+<meta property="og:url" content="http://localhost:4000/forty-jekyll-theme/2016/11/24/swift-pointer.html" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-11-24T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@andrewbanchich" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "Swift pointers cheat sheet",
+"datePublished": "2016-11-24T00:00:00+09:00",
+"description": "c와 swift의 포인터(작업중…)",
+"url": "http://localhost:4000/forty-jekyll-theme/2016/11/24/swift-pointer.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+	<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/forty-jekyll-theme/feed.xml" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<!--[if lte IE 8]><script src="http://localhost:4000/forty-jekyll-theme/assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="http://localhost:4000/forty-jekyll-theme/assets/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="http://localhost:4000/forty-jekyll-theme/assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="http://localhost:4000/forty-jekyll-theme/assets/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+
+    <!-- Wrapper -->
+<div id="wrapper">
+
+<!-- Header -->
+<header id="header">
+	<a href="http://localhost:4000/forty-jekyll-theme" class="logo"><strong>Forty</strong> <span>by HTML5 UP</span></a>
+	<nav>
+		<a href="#menu">Menu</a>
+	</nav>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+	<ul class="links">
+        
+		    
+		
+		    
+		
+		    
+		        <li><a href="/forty-jekyll-theme/">Home</a></li>
+	    	
+		
+		    
+		
+		    
+		
+		    
+		
+		
+		    
+		        <li><a href="/forty-jekyll-theme/elements.html">Elements</a></li>
+		    
+		
+		    
+		        <li><a href="/forty-jekyll-theme/generic.html">Generic</a></li>
+		    
+		
+		    
+		
+		    
+		        <li><a href="/forty-jekyll-theme/landing.html">Landing</a></li>
+		    
+		
+		    
+		        <li><a href="/forty-jekyll-theme/feed.xml"></a></li>
+		    
+		
+		    
+		        <li><a href="/forty-jekyll-theme/feed.xslt.xml"></a></li>
+		    
+		
+	</ul>
+	<ul class="actions vertical">
+		<li><a href="#" class="button special fit">Get Started</a></li>
+		<li><a href="#" class="button fit">Log In</a></li>
+	</ul>
+</nav> 
+    
+    
+<!-- Main -->
+<div id="main" class="alt">
+
+<!-- One -->
+<section id="one">
+	<div class="inner">
+		<header class="major">
+			<h1>Swift pointers cheat sheet</h1>
+		</header>
+		
+		<p><h1 id="c와-swift의-포인터작업중">c와 swift의 포인터(작업중…)</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">c</th>
+      <th style="text-align: left">swift</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">const Type *</td>
+      <td style="text-align: left">UnsafePointer&lt;Type&gt;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">const void *</td>
+      <td style="text-align: left">UnsafeRawPointer</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Type *</td>
+      <td style="text-align: left">UnsafeMutablePointer&lt;Type&gt;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">void *</td>
+      <td style="text-align: left">UnsafeMutableRawPointer</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+<h3 id="클래스">클래스</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">c</th>
+      <th style="text-align: left">swift</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Type * cosnt *</td>
+      <td style="text-align: left">UnsafePointer&lt;Type&gt;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Type * __strong *</td>
+      <td style="text-align: left">UnsafeMutablePointer&lt;Type&gt;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Type **</td>
+      <td style="text-align: left">AutoreleasingUnsafeMutablePointer&lt;Type&gt;</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+<strong>함수</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">c</th>
+      <th style="text-align: left">swift</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">int (*) (void)</td>
+      <td style="text-align: left">@convention () -&gt; Int32</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+<strong>Null</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">c</th>
+      <th style="text-align: left">swift</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">const Type * _Nonnull</td>
+      <td style="text-align: left">UsafePointer&lt;Type&gt;</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">const Type * _Nullable</td>
+      <td style="text-align: left">UnsafePointer&lt;Type&gt;?</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">const Type * _Null_unspecified</td>
+      <td style="text-align: left">UnsafePointer&lt;Type&gt;!</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+<strong>포인터의 계산</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">c</th>
+      <th style="text-align: left">swift</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">int p[] = {3, 2, 1, 0};<br />int a = *(p+1); =&gt; 2</td>
+      <td style="text-align: left">let values = [3, 2, 1, 0]<br />var arr: UnsafePointer<Int> = UnsafePointer<Int>(values)<br />let a: Int = (arr + 1).pointee =&gt; 2</Int></Int></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+<strong>타입 사이즈 계산</strong></p>
+<ul>
+  <li>c의 <em>sizeof, strideof</em> 함수의 역할</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>struct timeval { ... }
+MemoryLayout&lt;timeval&gt;.size =&gt; 16, timeval의 데이터 크기
+MemoryLayout&lt;timeval&gt;.stride =&gt; 16, timeval이 메모리에서 차지하는 실제 영역의 크기
+MemoryLayout&lt;timeval&gt;.alignment =&gt; 8, timeval의 메모리 주소 정렬, timeval은 8바이트의 배수로 메모리를 차지함
+</code></pre>
+</div>
+</p>
+	</div>
+</section>
+
+</div>
+
+    <!-- Contact -->
+<section id="contact">
+	<div class="inner">
+		<section>
+			<form action="https://formspree.io/youremailaddress@gmail.com" method="POST">
+				<div class="field half first">
+					<label for="name">Name</label>
+					<input type="text" name="name" id="name" />
+				</div>
+				<div class="field half">
+					<label for="email">Email</label>
+					<input type="text" name="_replyto" id="email" />
+				</div>
+				<div class="field">
+					<label for="message">Message</label>
+					<textarea name="message" id="message" rows="6"></textarea>
+				</div>
+				<ul class="actions">
+					<li><input type="submit" value="Send Message" class="special" /></li>
+					<li><input type="reset" value="Clear" /></li>
+				</ul>
+			</form>
+		</section>
+		<section class="split">
+			<section>
+				<div class="contact-method">
+					<span class="icon alt fa-envelope"></span>
+					<h3>Email</h3>
+					<a href="#">youremailaddress@gmail.com</a>
+				</div>
+			</section>
+			<section>
+				<div class="contact-method">
+					<span class="icon alt fa-phone"></span>
+					<h3>Phone</h3>
+					<span>(716) 555-5555</span>
+				</div>
+			</section>
+			<section>
+				<div class="contact-method">
+					<span class="icon alt fa-home"></span>
+					<h3>Address</h3>
+					<span>1234 Somewhere Road<br />
+					Nashville, TN 55555<br />
+					United States of America</span>
+				</div>
+			</section>
+		</section>
+	</div>
+</section>
+
+<!-- Footer -->
+	<footer id="footer">
+		<div class="inner">
+			<ul class="icons">
+				
+				<li><a href="https://twitter.com/andrewbanchich" class="icon alt fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
+				
+				
+				<li><a href="https://plus.google.com/u/0/+AndrewBanchich" class="icon alt fa-google-plus" target="_blank"><span class="label">Google+</span></a></li>
+				
+				
+				
+				<li><a href="https://instagram.com" class="icon alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+				
+				
+				
+				
+				<li><a href="https://gitlab.com/u/andrewbanchich" class="icon alt fa-gitlab" target="_blank"><span class="label">GitLab</span></a></li>
+				
+				
+				
+				
+				<li><a href="https://www.linkedin.com/in/andrew-banchich-a4ba1195" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+				
+			</ul>
+			<ul class="copyright">
+				<li>&copy; Forty by HTML5 UP</li>
+				<li>Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a></li>
+				<li>Jekyll integration: <a href="http://andrewbanchi.ch" target="_blank">Andrew Banchich</a></li>
+				
+			</ul>
+		</div>
+	</footer>
+
+</div>
+
+<!-- Scripts -->
+	<script src="http://localhost:4000/forty-jekyll-theme/assets/js/jquery.min.js"></script>
+	<script src="http://localhost:4000/forty-jekyll-theme/assets/js/jquery.scrolly.min.js"></script>
+	<script src="http://localhost:4000/forty-jekyll-theme/assets/js/jquery.scrollex.min.js"></script>
+	<script src="http://localhost:4000/forty-jekyll-theme/assets/js/skel.min.js"></script>
+	<script src="http://localhost:4000/forty-jekyll-theme/assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="http://localhost:4000/forty-jekyll-theme/assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="http://localhost:4000/forty-jekyll-theme/assets/js/main.js"></script>
+
+
+</body>
+
+</html>

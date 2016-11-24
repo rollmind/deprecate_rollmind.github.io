@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title></title>
+	<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>메모리, 스레드 그리고 배열(Array) 2</title>
+<meta property="og:title" content="메모리, 스레드 그리고 배열(Array) 2" />
+<meta name="description" content="Array는 왜 Thread에 안전하지 않을까." />
+<meta property="og:description" content="Array는 왜 Thread에 안전하지 않을까." />
+<link rel="canonical" href="http://localhost:4000/forty-jekyll-theme/swift/2016/07/19/eb-a9-94-eb-aa-a8-eb-a6-ac-ec-8a-a4-eb-a0-88-eb-93-9c-ea-b7-b8-eb-a6-ac-ea-b3-a0-eb-b0-b0-ec-97-b4array-2.html" />
+<meta property="og:url" content="http://localhost:4000/forty-jekyll-theme/swift/2016/07/19/eb-a9-94-eb-aa-a8-eb-a6-ac-ec-8a-a4-eb-a0-88-eb-93-9c-ea-b7-b8-eb-a6-ac-ea-b3-a0-eb-b0-b0-ec-97-b4array-2.html" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-07-19T16:29:56+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@andrewbanchich" />
+<meta name="twitter:creator" content="@singcodes" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "메모리, 스레드 그리고 배열(Array) 2",
+"datePublished": "2016-07-19T16:29:56+09:00",
+"description": "Array는 왜 Thread에 안전하지 않을까.",
+"url": "http://localhost:4000/forty-jekyll-theme/swift/2016/07/19/eb-a9-94-eb-aa-a8-eb-a6-ac-ec-8a-a4-eb-a0-88-eb-93-9c-ea-b7-b8-eb-a6-ac-ea-b3-a0-eb-b0-b0-ec-97-b4array-2.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+	<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/forty-jekyll-theme/feed.xml" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<!--[if lte IE 8]><script src="http://localhost:4000/forty-jekyll-theme/assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="http://localhost:4000/forty-jekyll-theme/assets/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="http://localhost:4000/forty-jekyll-theme/assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="http://localhost:4000/forty-jekyll-theme/assets/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+
+    <!-- Wrapper -->
+<div id="wrapper">
+
+<!-- Header -->
+<header id="header">
+	<a href="http://localhost:4000/forty-jekyll-theme" class="logo"><strong>Forty</strong> <span>by HTML5 UP</span></a>
+	<nav>
+		<a href="#menu">Menu</a>
+	</nav>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+	<ul class="links">
+        
+		    
+		
+		    
+		
+		    
+		        <li><a href="/forty-jekyll-theme/">Home</a></li>
+	    	
+		
+		    
+		
+		    
+		
+		    
+		
+		
+		    
+		        <li><a href="/forty-jekyll-theme/elements.html">Elements</a></li>
+		    
+		
+		    
+		        <li><a href="/forty-jekyll-theme/generic.html">Generic</a></li>
+		    
+		
+		    
+		
+		    
+		        <li><a href="/forty-jekyll-theme/landing.html">Landing</a></li>
+		    
+		
+		    
+		        <li><a href="/forty-jekyll-theme/feed.xml"></a></li>
+		    
+		
+		    
+		        <li><a href="/forty-jekyll-theme/feed.xslt.xml"></a></li>
+		    
+		
+	</ul>
+	<ul class="actions vertical">
+		<li><a href="#" class="button special fit">Get Started</a></li>
+		<li><a href="#" class="button fit">Log In</a></li>
+	</ul>
+</nav> 
+    
+    
+<!-- Main -->
+<div id="main" class="alt">
+
+<!-- One -->
+<section id="one">
+	<div class="inner">
+		<header class="major">
+			<h1>메모리, 스레드 그리고 배열(Array) 2</h1>
+		</header>
+		
+		<p><h4 id="array는-왜-thread에-안전하지-않을까">Array는 왜 Thread에 안전하지 않을까.</h4>
+
+<p><em>한 여자, 혹은 한 남자가 있습니다. 이 사람은 두 명 이상의 사랑을 동시에 받았죠. 어쩌겠습니다. 보기만 해도 반하는 사람인걸요. 이 사람은 시간을 정해서 따로 따로 연인을 만나려고 했습니다만, 사랑이라는거 알잖아요? 이 사람을 사랑하는 사람들이 하필 오늘 깜짝 놀래켜 주려고 이 사람의 직장앞에서 선물을 들고 기다리다 퇴근시간에</em> <strong><em>짠</em></strong> <em>동시에 나타납니다. 뺨도 맞고 사랑도 잃고, 선물도 사라지고</em></p>
+
+<p><strong>아침 코딩 잔혹극 ‘배열의 사랑’ 중</strong></p>
+
+<p>어제 배열에 대해 잠깐 글을 올렸는데, 이 threadsafe에 대해서 궁금한 분들이 (계시죠?) 계실것 같아, 추가로 조금 설명을 하려고 합니다.</p>
+
+<p>뭐, 제가 할 수 있는 가장 간략하고, 쉬운 비유는 위에 이미 썼습니다. 다만 실제와는 좀 거리가 있는 비유라 다시 해볼께요.</p>
+
+<p>여기 인기 많은 배열이 있습니다.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code&gt;var nightwish = ["Tuomas", "Erno", "Jukka", "Marco", "Troy"]&lt;/code&gt;
+</code></pre>
+</div>
+
+<p><em>심포닉 메탈 배열~~ 예이~~</em></p>
+
+<p>보컬이 빠졌네요. 동시에 2개의 스레드에서 append함수를 통해 보컬을 추가합니다.</p>
+
+<p><strong>Thread 1(new fans 1)</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code&gt;nightwith.append("Anette")&lt;/code&gt;
+</code></pre>
+</div>
+
+<p>아네트가 들어왔습니다.</p>
+
+<p><strong>Thread 2(new fans 2)</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code&gt;nightwish.append("Floor")&lt;/code&gt;
+</code></pre>
+</div>
+
+<p>새로 플로어도 들어왔어요.</p>
+
+<p>Thread 1과 Thread 2가 거의 동시에 append를 호출했습니다. 결과는 어떻게 될까요? 결과를 말하기 전에 먼저 아래 내용을 한번 보시면 좋겠습니다.</p>
+
+<p>##</p>
+
+<h5 id="array는-내부에-arraybuffer라는-스토리지를-가지고-있습니다-append를-호출하게-되면-다음과-같은-일이-벌어지리라-추측하고-있습니다">Array는 내부에 ArrayBuffer라는 스토리지를 가지고 있습니다. append를 호출하게 되면 다음과 같은 일이 벌어지리라 추측하고 있습니다.</h5>
+
+<ul>
+  <li>
+    <p>ArrayBuffer 복사</p>
+  </li>
+  <li>
+    <p>ArrayBuffer에 공간이 충분하면 기존 element를 추가</p>
+  </li>
+  <li>
+    <p>ArrayBuffer에 공간이 충분하지 않는 경우</p>
+
+    <ul>
+      <li>
+        <p>더 큰 ArrayBuffer생성</p>
+      </li>
+      <li>
+        <p>기존 버퍼의 내용 복제</p>
+      </li>
+      <li>
+        <p>element 추가</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><em>ArrayBuffer는 새로 생성되면 8바이트정도의 여유를 가지고 있는 거 같습니다. element를 더할 때마다 배열의 메모리 주소를 추적해보면, 8바이트의 데이터가 쌓일때마다 주소가 변합니다. 그 반대로 데이터를 배열에서 제거하는 경우는 메모리 주소가 변하지 않습니다. 한 번 늘어난 배열의 메모리 크기는 변하지 않는다는 뜻이겠지요.</em></p>
+
+<p>##</p>
+
+<h5 id="다시-팬들에게로-돌아가-보겠습니다">다시 팬들에게로 돌아가 보겠습니다.</h5>
+
+<p>사실 스레드에 안전하지 않은 이유는 좀 어이없을 정도로 쉽습니다.</p>
+
+<ul>
+  <li>
+    <p>Thread 1</p>
+
+    <ul>
+      <li>
+        <p>append “Anette”</p>
+      </li>
+      <li>
+        <p>[“Tuomas”, “Erno”, “Jukka”, “Marco”, “Troy”]의 데이터를 내부에서 새로 만들어서 “Anette”를 추가합니다.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Thread 2</p>
+
+    <ul>
+      <li>
+        <p>append “Floor”</p>
+      </li>
+      <li>
+        <p>동시에 접근 했기 때문에, Anette가 뭔지 모릅니다. [“Tuomas”, “Erno”, “Jukka”, “Marco”, “Troy”]의 데이터를 내부에서 새로 만들어서 “Floor”를 추가합니다.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Update Array Buffer</p>
+
+    <ul>
+      <li>
+        <p>다행스럽게 ArrayBuffer를 새로 만들 때 Thread간 속도 차이가 있는 경우, 크래쉬는 나지 않습니다. Thread 1이 더 빠르다고 가장하면</p>
+      </li>
+      <li>
+        <p>[“Tuomas”, “Erno”, “Jukka”, “Marco”, “Troy”, “Anette”]의 데이터가 ArrayBuffer에 쓰여지고난 후,</p>
+      </li>
+      <li>
+        <p>[“Tuomas”, “Erno”, “Jukka”, “Marco”, “Troy”, “Floor”]의 데이터가 다시 동일한 ArrayBuffer에 쓰여집니다.</p>
+      </li>
+      <li>
+        <p>Anette는 들어가보지도 못하고 퇴출됩니다.</p>
+      </li>
+      <li>
+        <p>바로 위에서도 말했지만, ArrayBuffer의 update마저 동시에 일어날 경우는 바로 아웃입니다. 크래쉬에요.</p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><em>위의 경우처럼 스레드에서 문제가 되는 과정은 바로 write or update의 과정입니다. 물론 읽는 과정에서 데이터가 사라지는 것 자체도 문제지만요.</em></p>
+</p>
+	</div>
+</section>
+
+</div>
+
+    <!-- Contact -->
+<section id="contact">
+	<div class="inner">
+		<section>
+			<form action="https://formspree.io/youremailaddress@gmail.com" method="POST">
+				<div class="field half first">
+					<label for="name">Name</label>
+					<input type="text" name="name" id="name" />
+				</div>
+				<div class="field half">
+					<label for="email">Email</label>
+					<input type="text" name="_replyto" id="email" />
+				</div>
+				<div class="field">
+					<label for="message">Message</label>
+					<textarea name="message" id="message" rows="6"></textarea>
+				</div>
+				<ul class="actions">
+					<li><input type="submit" value="Send Message" class="special" /></li>
+					<li><input type="reset" value="Clear" /></li>
+				</ul>
+			</form>
+		</section>
+		<section class="split">
+			<section>
+				<div class="contact-method">
+					<span class="icon alt fa-envelope"></span>
+					<h3>Email</h3>
+					<a href="#">youremailaddress@gmail.com</a>
+				</div>
+			</section>
+			<section>
+				<div class="contact-method">
+					<span class="icon alt fa-phone"></span>
+					<h3>Phone</h3>
+					<span>(716) 555-5555</span>
+				</div>
+			</section>
+			<section>
+				<div class="contact-method">
+					<span class="icon alt fa-home"></span>
+					<h3>Address</h3>
+					<span>1234 Somewhere Road<br />
+					Nashville, TN 55555<br />
+					United States of America</span>
+				</div>
+			</section>
+		</section>
+	</div>
+</section>
+
+<!-- Footer -->
+	<footer id="footer">
+		<div class="inner">
+			<ul class="icons">
+				
+				<li><a href="https://twitter.com/andrewbanchich" class="icon alt fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
+				
+				
+				<li><a href="https://plus.google.com/u/0/+AndrewBanchich" class="icon alt fa-google-plus" target="_blank"><span class="label">Google+</span></a></li>
+				
+				
+				
+				<li><a href="https://instagram.com" class="icon alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+				
+				
+				
+				
+				<li><a href="https://gitlab.com/u/andrewbanchich" class="icon alt fa-gitlab" target="_blank"><span class="label">GitLab</span></a></li>
+				
+				
+				
+				
+				<li><a href="https://www.linkedin.com/in/andrew-banchich-a4ba1195" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+				
+			</ul>
+			<ul class="copyright">
+				<li>&copy; Forty by HTML5 UP</li>
+				<li>Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a></li>
+				<li>Jekyll integration: <a href="http://andrewbanchi.ch" target="_blank">Andrew Banchich</a></li>
+				
+			</ul>
+		</div>
+	</footer>
+
+</div>
+
+<!-- Scripts -->
+	<script src="http://localhost:4000/forty-jekyll-theme/assets/js/jquery.min.js"></script>
+	<script src="http://localhost:4000/forty-jekyll-theme/assets/js/jquery.scrolly.min.js"></script>
+	<script src="http://localhost:4000/forty-jekyll-theme/assets/js/jquery.scrollex.min.js"></script>
+	<script src="http://localhost:4000/forty-jekyll-theme/assets/js/skel.min.js"></script>
+	<script src="http://localhost:4000/forty-jekyll-theme/assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="http://localhost:4000/forty-jekyll-theme/assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="http://localhost:4000/forty-jekyll-theme/assets/js/main.js"></script>
+
+
+</body>
+
+</html>

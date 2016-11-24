@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title></title>
+	<!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>Switch case 문을 위한 Custom operator 만들어보기</title>
+<meta property="og:title" content="Switch case 문을 위한 Custom operator 만들어보기" />
+<meta name="description" content="오늘도 뜬금없는 강의(강의라는 단어가 저한테 좀 과한 느낌이드네요)입니다. 이번에는 custom operator에 특히 switch case문에서 사용하는 custom expression pattern에 대해 써보겠습니다." />
+<meta property="og:description" content="오늘도 뜬금없는 강의(강의라는 단어가 저한테 좀 과한 느낌이드네요)입니다. 이번에는 custom operator에 특히 switch case문에서 사용하는 custom expression pattern에 대해 써보겠습니다." />
+<link rel="canonical" href="http://localhost:4000/forty-jekyll-theme/swift/2016/07/29/ec-8a-a4-ec-9c-84-ec-b9-98-ec-bc-80-ec-9d-b4-ec-8a-a4-eb-ac-b8-ec-9d-84-ec-9c-84-ed-95-9c-custom-operator-eb-a7-8c-eb-93-a4-ec-96-b4-eb-b3-b4-ea-b8-b0.html" />
+<meta property="og:url" content="http://localhost:4000/forty-jekyll-theme/swift/2016/07/29/ec-8a-a4-ec-9c-84-ec-b9-98-ec-bc-80-ec-9d-b4-ec-8a-a4-eb-ac-b8-ec-9d-84-ec-9c-84-ed-95-9c-custom-operator-eb-a7-8c-eb-93-a4-ec-96-b4-eb-b3-b4-ea-b8-b0.html" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-07-29T15:18:20+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@andrewbanchich" />
+<meta name="twitter:creator" content="@singcodes" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "Switch case 문을 위한 Custom operator 만들어보기",
+"datePublished": "2016-07-29T15:18:20+09:00",
+"description": "오늘도 뜬금없는 강의(강의라는 단어가 저한테 좀 과한 느낌이드네요)입니다. 이번에는 custom operator에 특히 switch case문에서 사용하는 custom expression pattern에 대해 써보겠습니다.",
+"url": "http://localhost:4000/forty-jekyll-theme/swift/2016/07/29/ec-8a-a4-ec-9c-84-ec-b9-98-ec-bc-80-ec-9d-b4-ec-8a-a4-eb-ac-b8-ec-9d-84-ec-9c-84-ed-95-9c-custom-operator-eb-a7-8c-eb-93-a4-ec-96-b4-eb-b3-b4-ea-b8-b0.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+	<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/forty-jekyll-theme/feed.xml" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<!--[if lte IE 8]><script src="http://localhost:4000/forty-jekyll-theme/assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="http://localhost:4000/forty-jekyll-theme/assets/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="http://localhost:4000/forty-jekyll-theme/assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="http://localhost:4000/forty-jekyll-theme/assets/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+
+    <!-- Wrapper -->
+<div id="wrapper">
+
+<!-- Header -->
+<header id="header">
+	<a href="http://localhost:4000/forty-jekyll-theme" class="logo"><strong>Forty</strong> <span>by HTML5 UP</span></a>
+	<nav>
+		<a href="#menu">Menu</a>
+	</nav>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+	<ul class="links">
+        
+		    
+		
+		    
+		
+		    
+		        <li><a href="/forty-jekyll-theme/">Home</a></li>
+	    	
+		
+		    
+		
+		    
+		
+		    
+		
+		
+		    
+		        <li><a href="/forty-jekyll-theme/elements.html">Elements</a></li>
+		    
+		
+		    
+		        <li><a href="/forty-jekyll-theme/generic.html">Generic</a></li>
+		    
+		
+		    
+		
+		    
+		        <li><a href="/forty-jekyll-theme/landing.html">Landing</a></li>
+		    
+		
+		    
+		        <li><a href="/forty-jekyll-theme/feed.xml"></a></li>
+		    
+		
+		    
+		        <li><a href="/forty-jekyll-theme/feed.xslt.xml"></a></li>
+		    
+		
+	</ul>
+	<ul class="actions vertical">
+		<li><a href="#" class="button special fit">Get Started</a></li>
+		<li><a href="#" class="button fit">Log In</a></li>
+	</ul>
+</nav> 
+    
+    
+<!-- Main -->
+<div id="main" class="alt">
+
+<!-- One -->
+<section id="one">
+	<div class="inner">
+		<header class="major">
+			<h1>Switch case 문을 위한 Custom operator 만들어보기</h1>
+		</header>
+		
+		<p><p>오늘도 뜬금없는 강의(강의라는 단어가 저한테 좀 과한 느낌이드네요)입니다. 이번에는 custom operator에 특히 switch case문에서 사용하는 custom expression pattern에 대해 써보겠습니다.</p>
+
+<p>개발을 하다보면 쉽게 마주치는 if 문이 있습니다.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-swift"&gt;let number = 100
+
+if 100 &gt; number {
+    print("smaller than 100")
+} else if 100 &lt;= number {
+    print("equal or bigger than 100")
+}&lt;/code&gt;
+</code></pre>
+</div>
+
+<p>switch case의 풍부한 문법에 눈뜨기 시작하신 스위프트 유저라면 switch case문을 사랑하기 시작했을 겁니다.</p>
+
+<p>저도 마찬가지라 저 코드를 어떻게 하면 switch case로 옮길 수 있을까 고민을 했습니다.</p>
+
+<p>시작과 끝의 범위가 명확하다면</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-swift"&gt;case 0...100:
+    print("blah blah")&lt;/code&gt;
+</code></pre>
+</div>
+
+<p>라는 형식도 가능합니다만, 두 번째 else if 문을 switch case 문으로 하려면</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-swift"&gt;case 100..&lt;Int.max:
+    print("blah blah")&lt;/code&gt;
+</code></pre>
+</div>
+
+<p>처럼 끝을 지정해야합니다. 아니 난 그냥 100보다 큰 숫자만 체크하면 되는건데, 뭔 맥시멈 밸류까지 끌어와야 하나, 라는 생각에 커스텀 패턴을 만들어보자는 생각을 했습니다.</p>
+
+<p>코드는 다음과 같습니다.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-swift"&gt;//괜히 만들어봤습니다. 좀더 프로토콜 중심으로 구성하고 싶었는데, 제 제너릭에 대한 습득이 아직 부족하여서.. associatedtype으로는 문제가 많아 struct를 중심으로 작성합니다.
+protocol PatternComparable {}
+
+// 비교 operator와 비교값을 담을 수 있도록 struct를 작성합니다.
+// op - compare operator
+// to - target comparable value
+// Comparable을 제너릭으로 사용하여 Comparable을 상속하는 모든 타입에서 이 코드를 사용가능 하도록 했습니다.
+struct Pattern&lt;C: Comparable&gt;: PatternComparable {
+    let op: (lhs: C, rhs: C) -&gt; Bool
+    let to: C
+    func compare(from: C) -&gt; Bool {
+        return op(lhs: from, rhs: to)
+    }
+}
+
+// Pattern struct를 편하게 생성할 수 있도록 만든 함수입니다.
+func patternize&lt;C: Comparable&gt;(op: (lhs: C, rhs: C) -&gt; Bool, _ to: C) -&gt; Pattern&lt;C&gt; {
+    return Pattern&lt;C&gt;(op: op, to: to)
+}
+
+// ~=는 pattern matching operator입니다.
+// pattern - case 문에 들어가는 predicate입니다.
+// value - switch 문에 들어가는 비교값입니다.
+func ~=&lt;C: Comparable&gt;(pattern: Pattern&lt;C&gt;, value: C) -&gt; Bool {
+    return pattern.compare(value)
+}
+
+// 직접 tuple값으로 (예: (op: &lt;, to: 100)) 패턴을 생성해보려 했으나 실패했습니다. tuple패턴은 switch에도 역시 tuple이 와야하더군요. swift3에서 튜플 타입에 변화가 생기면 사용가능할까 하여 놔뒀습니다.
+func ~=&lt;C: Comparable&gt;(pattern: (op:(lhs: C, rhs: C)-&gt;Bool, to:C), value: C) -&gt; Bool {
+    return pattern.0(lhs:value, rhs: pattern.1)
+}
+
+// Comparable에서 직접 Pattern struct를 생성하도록 만든 프로토콜입니다. 다만 문법상으로 순서가 애매합니다. 비교연산자의 우측에 가야할 값을 좌측으로 보내야해서 좀 헷갈린다고나 할까요. 그냥 이런것도 가능하구나 하고 생각해주시면 될 거 같습니다. 더 좋은 방식이 있다면 함께 의논해보면 좋겠습니다.
+// 예) 100보다 큰 숫자를 체크할 경우
+// case 100.patterned(&gt;) - 이상하죠?
+protocol Patternable {}
+extension Int: Patternable {}
+extension Int8: Patternable {}
+extension Int16: Patternable {}
+extension Int32: Patternable {}
+extension Int64: Patternable {}
+extension UInt: Patternable {}
+extension UInt8: Patternable {}
+extension UInt16: Patternable {}
+extension UInt32: Patternable {}
+extension UInt64: Patternable {}
+extension Double: Patternable {}
+extension Float: Patternable {}
+extension CGFloat: Patternable {}
+
+extension Patternable where Self: Comparable {
+    func patterned&lt;E where E: Comparable&gt;(op: (lhs: E, rhs: E) -&gt; Bool) -&gt; Pattern&lt;E&gt; {
+        return Pattern&lt;E&gt;(op: op, to: self as! E)
+    }
+}&lt;/code&gt;
+</code></pre>
+</div>
+
+<p>코드는 아래와 같은 방식으로 테스트해 볼 수 있습니다:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-swift"&gt;let value = "test"
+
+switch value {
+case patternize(&lt;=, "test1"):
+    print("smaller than test1")
+case patternize(&gt;, "tes"):
+    print("bigger than tes")
+default:
+    print("default")
+}
+
+let value1 = 100.1
+
+switch value1 {
+case 100.0.patterned(&lt;=):
+    print("smaller than 100.0")
+case patternize(&gt;, 100.0):
+    print("bigger than 100.0")
+default:
+    print("default")
+}&lt;/code&gt;
+</code></pre>
+</div>
+
+<p>결과:</p>
+
+<blockquote>smaller than test1
+bigger than 100.0</blockquote>
+
+<h4 id="comparable을-제너릭의-상속값으로-사용했기-때문에-문자열같이-comparable을-extension으로-가지는-모든-타입에서-사용이-가능하다는-장점이-있습니다-그래도-if-문보다-손이-많이-가는건-어쩔-수가-없네요-더-좋은-방법을-함께-토론할-수-있다면-좋겠습니다">Comparable을 제너릭의 상속값으로 사용했기 때문에, 문자열같이 Comparable을 extension으로 가지는 모든 타입에서 사용이 가능하다는 장점이 있습니다. 그래도 if 문보다 손이 많이 가는건 어쩔 수가 없네요. 더 좋은 방법을 함께 토론할 수 있다면 좋겠습니다.</h4>
+
+<p>좋은 하루 되세요.</p>
+</p>
+	</div>
+</section>
+
+</div>
+
+    <!-- Contact -->
+<section id="contact">
+	<div class="inner">
+		<section>
+			<form action="https://formspree.io/youremailaddress@gmail.com" method="POST">
+				<div class="field half first">
+					<label for="name">Name</label>
+					<input type="text" name="name" id="name" />
+				</div>
+				<div class="field half">
+					<label for="email">Email</label>
+					<input type="text" name="_replyto" id="email" />
+				</div>
+				<div class="field">
+					<label for="message">Message</label>
+					<textarea name="message" id="message" rows="6"></textarea>
+				</div>
+				<ul class="actions">
+					<li><input type="submit" value="Send Message" class="special" /></li>
+					<li><input type="reset" value="Clear" /></li>
+				</ul>
+			</form>
+		</section>
+		<section class="split">
+			<section>
+				<div class="contact-method">
+					<span class="icon alt fa-envelope"></span>
+					<h3>Email</h3>
+					<a href="#">youremailaddress@gmail.com</a>
+				</div>
+			</section>
+			<section>
+				<div class="contact-method">
+					<span class="icon alt fa-phone"></span>
+					<h3>Phone</h3>
+					<span>(716) 555-5555</span>
+				</div>
+			</section>
+			<section>
+				<div class="contact-method">
+					<span class="icon alt fa-home"></span>
+					<h3>Address</h3>
+					<span>1234 Somewhere Road<br />
+					Nashville, TN 55555<br />
+					United States of America</span>
+				</div>
+			</section>
+		</section>
+	</div>
+</section>
+
+<!-- Footer -->
+	<footer id="footer">
+		<div class="inner">
+			<ul class="icons">
+				
+				<li><a href="https://twitter.com/andrewbanchich" class="icon alt fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
+				
+				
+				<li><a href="https://plus.google.com/u/0/+AndrewBanchich" class="icon alt fa-google-plus" target="_blank"><span class="label">Google+</span></a></li>
+				
+				
+				
+				<li><a href="https://instagram.com" class="icon alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+				
+				
+				
+				
+				<li><a href="https://gitlab.com/u/andrewbanchich" class="icon alt fa-gitlab" target="_blank"><span class="label">GitLab</span></a></li>
+				
+				
+				
+				
+				<li><a href="https://www.linkedin.com/in/andrew-banchich-a4ba1195" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+				
+			</ul>
+			<ul class="copyright">
+				<li>&copy; Forty by HTML5 UP</li>
+				<li>Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a></li>
+				<li>Jekyll integration: <a href="http://andrewbanchi.ch" target="_blank">Andrew Banchich</a></li>
+				
+			</ul>
+		</div>
+	</footer>
+
+</div>
+
+<!-- Scripts -->
+	<script src="http://localhost:4000/forty-jekyll-theme/assets/js/jquery.min.js"></script>
+	<script src="http://localhost:4000/forty-jekyll-theme/assets/js/jquery.scrolly.min.js"></script>
+	<script src="http://localhost:4000/forty-jekyll-theme/assets/js/jquery.scrollex.min.js"></script>
+	<script src="http://localhost:4000/forty-jekyll-theme/assets/js/skel.min.js"></script>
+	<script src="http://localhost:4000/forty-jekyll-theme/assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="http://localhost:4000/forty-jekyll-theme/assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="http://localhost:4000/forty-jekyll-theme/assets/js/main.js"></script>
+
+
+</body>
+
+</html>
